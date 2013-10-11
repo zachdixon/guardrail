@@ -1,0 +1,31 @@
+<template name="testStatus">
+	<div class="item-status btn-group" data-toggle="buttons">
+		{{#if currentStatus 'passing'}}
+			<label class="btn btn-success btn-xs active" data-status="success" for="status-passing-{{_id}}">
+		    <input type="radio" name="status-{{_id}}" id="status-passing" checked="checked" value="passing"> Passing
+		  </label>
+		{{else}}
+			<label class="btn btn-default btn-xs" data-status="success" for="status-passing-{{_id}}">
+		    <input type="radio" name="status-{{_id}}" id="status-passing" value="passing"> Passing
+		  </label>
+		{{/if}}
+	  {{#if currentStatus 'failing'}}
+		  <label class="btn btn-danger btn-xs active" data-status="danger" for="status-failing-{{_id}}">
+		    <input type="radio" name="status-{{_id}}" id="status-failing" checked="checked" value="failing"> Failing
+		  </label>
+		{{else}}
+			<label class="btn btn-default btn-xs" data-status="danger" for="status-failing-{{_id}}">
+		    <input type="radio" name="status-{{_id}}" id="status-failing" value="failing"> Failing
+		  </label>
+		{{/if}}
+	  {{#if currentStatus 'untested'}}
+		  <label class="btn btn-warning btn-xs active" data-status="warning" for="status-untested-{{_id}}">
+		    <input type="radio" name="status-{{_id}}" id="status-untested" checked="checked" value="untested"> Untested
+		  </label>
+		{{else}}
+			<label class="btn btn-default btn-xs" data-status="warning" for="status-untested-{{_id}}">
+		    <input type="radio" name="status-{{_id}}" id="status-untested" value="untested"> Untested
+		  </label>
+		{{/if}}
+	</div>
+</template>

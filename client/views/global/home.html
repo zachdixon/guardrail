@@ -1,0 +1,63 @@
+<template name="home">
+	<div class="container">
+		{{#if currentUser}}
+			<div class="row">
+				<div class="col-md-8">
+					<div class="page-header">
+						<h1>
+							Welcome!
+							<small>Choose an app or create a new one</small>
+						</h1>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<ul class="list-group">
+						{{> apps}}
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<form action="" class="form-inline" role="form" id="addApp">
+						<div class="row">
+							<div class="form-group col-md-9">
+								<label for="newApp" class="sr-only">New App</label>
+								<input type="text" id="newApp" class="form-control" placeholder="Add a new app" required="required">
+							</div>
+							<div class="form-group col-md-3">
+								<button class="btn btn-primary pull-right" type="submit">Add App</button>
+							</div>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+		{{else}}
+			<div class="row">
+				<div class="col-md-8">
+					<div class="page-header">
+						<h1>
+							Welcome!
+							<small>Please sign in to begin.</small>
+						</h1>
+					</div>
+				</div>
+			</div>
+		{{/if}}
+	</div>
+</template>
+
+<template name="apps">
+	{{#each apps}}
+		{{> app}}
+	{{/each}}
+</template>
+
+<template name="app">
+	<li id="{{_id}}" class="list-group-item">
+		<a href="{{pathFor 'settings' appName=name}}" class="pull-right btn btn-default btn-xs">Settings</a>
+		<a href="{{pathFor 'tests' appName=name}}">{{name}}</a>
+	</li>
+</template>

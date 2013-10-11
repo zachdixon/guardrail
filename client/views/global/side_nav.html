@@ -1,0 +1,13 @@
+<template name="sideNav">
+	{{#if hasTests}}
+		<div id="socialcompass-sidenav" class="bs-sidebar hidden-print affix" role="complementary">
+			<ul class="nav bs-sidenav">
+				{{#each categories}}
+					{{#if hasTestItems}}
+						<li><a href="#{{name}}">{{name}}</a></li>
+					{{/if}}
+				{{/each}}
+			</ul>
+		</div>
+	{{/if}}
+</template>

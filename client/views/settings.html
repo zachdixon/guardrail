@@ -1,0 +1,28 @@
+<template name="settings">
+	<div class="container">
+		{{> appSettings}}
+		{{> categoriesList}}
+	</div>
+</template>
+
+<template name="appSettings">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="page-header">
+				<h2>
+					Settings
+					<button class="btn btn-danger btn-large pull-right delete">Delete App</button>
+				</h2>
+			</div>
+		</div>
+	</div>
+	<div class="row app-settings">
+		<div class="col-md-6">
+			<div class="col-md-2">Name</div>
+			<div class="col-md-10">
+				<a href="#" data-type="text" class="app-name editable-click pull-left">{{currentApp}}</a>
+			</div>
+		</div>
+	</div>
+
+</template>

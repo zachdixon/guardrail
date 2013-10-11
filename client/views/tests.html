@@ -1,0 +1,70 @@
+<template name="testsList">
+	<div id="main_wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					{{> sideNav}}
+				</div>
+				<div class="col-md-9">
+					{{#if currentUser}}
+						<div class="row">
+							{{> filters}}
+						</div>
+						<div id="test-items" class="row">
+							{{#if hasTests}}
+								{{> testItems}}
+							{{else}}
+								{{#if hasCategories}}
+									<section class="main-alert">
+										<div class="alert alert-warning">
+											<strong>Hey! Listen!</strong>
+											You don't have any tests yet,
+											<a href="{{pathFor 'create' appName=currentApp}}"> create one now.</a>
+										</div>
+									</section>
+								{{else}}
+									<section class="main-alert">
+										<div class="alert alert-warning">
+											<strong>Hey! Listen!</strong>
+											Before you can add any tests, you
+											<a href="{{pathFor 'settings' appName=currentApp}}"> need a category or two.</a>
+										</div>
+									</section>
+								{{/if}}
+							{{/if}}
+						</div>
+					</div>
+				{{else}}
+					<section>
+						<div class="alert alert-warning">
+							<strong>Hey! Listen!</strong>
+							Please sign in.
+						</div>
+					</section>
+				{{/if}}
+			</div>
+		</div>
+	</div>
+</template>
+
+
+<template name="testItems">
+	<!-- TODO: loop through each category -->
+	{{#each categories}}
+		{{> testGroup}}
+	{{/each}}
+</template>
+
+<template name="testGroup">
+	{{#if hasTestItems}}
+		<section id="items-{{name}}">
+			<div class="page-header">
+				<h2 id="{{name}}">{{name}}</h2>
+			</div>
+			{{#each with_index testItems}}
+				{{> testItem}}
+			{{/each}}
+		</section>
+	{{/if}}
+</template>
+

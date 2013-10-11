@@ -1,0 +1,45 @@
+<template name="categoriesList">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="page-header">
+				<h2>Categories</h2>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<ul class="list-group">
+				{{> categories}}
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<form action="" class="form-inline" role="form" id="addCategory">
+				<div class="row">
+					<div class="form-group col-md-9">
+						<label for="newCategory" class="sr-only">New Category</label>
+						<input type="text" id="newCategory" class="form-control" placeholder="Add new category" required="required">
+					</div>
+					<div class="form-group col-md-3">
+						<button class="btn btn-primary" type="submit">Add Category</button>
+					</div>
+				</div>
+				
+			</form>
+		</div>
+	</div>
+</template>
+
+<template name="categories">
+	{{#each categories}}
+		{{> category}}
+	{{/each}}
+</template>
+
+<template name="category">
+	<li class="list-group-item">
+		<button class="btn btn-danger btn-xs pull-right delete">Delete</button>
+		<a href="#" id="{{_id}}" data-type="text" class="category-name editable-click">{{name}}</a>
+	</li>
+</template>

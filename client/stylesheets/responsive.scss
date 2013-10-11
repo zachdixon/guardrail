@@ -1,0 +1,11 @@
+@media screen and (max-width: 1199px) {
+	.bs-sidebar.affix {
+		width: 213px;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.bs-sidebar.affix {
+		display: none;
+	}
+}

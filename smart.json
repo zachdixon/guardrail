@@ -1,0 +1,18 @@
+{
+  "packages": {
+    "collection2": {},
+    "handlebar-helpers": {},
+    "iron-router": {},
+    "modernizr-meteor": {},
+    "momentjs": {},
+    "spin": {},
+    "underscore-string-latest": {},
+    "select2": {},
+    "smart-collections": {},
+    "bootstrap-3": {},
+    "accounts-ui-bootstrap-3": {},
+    "bootstrap-wysihtml5": {},
+    "bootstrap-wysiwyg": {},
+    "scss": {}
+  }
+}
