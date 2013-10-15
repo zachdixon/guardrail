@@ -32,3 +32,5 @@ Template.categories.rendered = ->
 		# TODO: move to Meteor.methods once security is implemented
 		# Tests.update({category: oldCategory}, {$set: {category: newCategory}})
 		Categories.update(id, {$set: {name: newCategory}})
+		Tests.find({category: oldCategory}).forEach (test) ->
+			Tests.update(test._id, {$set: {category: newCategory}})

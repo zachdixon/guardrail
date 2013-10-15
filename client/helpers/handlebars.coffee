@@ -10,3 +10,7 @@ Handlebars.registerHelper 'with_index', (items) ->
 Handlebars.registerHelper 'currentApp', ->
 	Session.get('currentApp')
 
+Handlebars.registerHelper 'currentPage', (page) ->
+	if Session.equals 'currentPage', page
+		return "class='active'"
+

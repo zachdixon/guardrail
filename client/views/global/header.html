@@ -21,8 +21,8 @@
                 {{/each}}
               </ul>
             </li>
-            <li><a href="{{pathFor 'tests' appName=currentApp}}">Tests</a></li>
-            <li><a href="{{pathFor 'settings' appName=currentApp}}">Settings</a></li>
+            <li {{{currentPage 'tests'}}}><a href="{{pathFor 'tests' appName=currentApp}}">Tests</a></li>
+            <li {{{currentPage 'settings'}}}><a href="{{pathFor 'settings' appName=currentApp}}">Settings</a></li>
           </ul>
         {{/if}}
         <ul class="nav navbar-nav navbar-right">

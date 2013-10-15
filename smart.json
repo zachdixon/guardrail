@@ -11,8 +11,7 @@
     "smart-collections": {},
     "bootstrap-3": {},
     "accounts-ui-bootstrap-3": {},
-    "bootstrap-wysihtml5": {},
-    "bootstrap-wysiwyg": {},
-    "scss": {}
+    "scss": {},
+    "font-awesome": {}
   }
 }

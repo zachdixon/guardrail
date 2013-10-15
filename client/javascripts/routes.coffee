@@ -13,19 +13,19 @@ mixpanel.init("50bf43445362254d3d65316791cb5ef5");`
 Router.configure
   layout: "layout"
   loadingTemplate: "loading"
-  notFoundTemplate: "notFound"
   before: ->
+    Meteor.startup ->
+      window.scrollTo(0,0)
     routeName = @context.route.name
     if _.include(["tests", "settings", "create", "edit"], routeName)
-      unless Meteor.user() then Router.go('home')
+      unless Meteor.user() or Meteor.loggingIn() then Router.go('home')
     if @params.appName isnt undefined
-      Session.set('currentApp', @params.appName)
-      Session.set('currentAppId', Apps.findOne({name: @params.appName})._id)
+      if App.subs.apps.ready()
+        Session.set('currentApp', @params.appName)
+        Session.set('currentAppId', Apps.findOne({name: @params.appName})._id)
     else
       Session.set('currentApp', undefined)
       Session.set('currentAppId', undefined)
-    Meteor.startup ->
-      window.scrollTo(0,0)
 
 Router.map ->
   @route "home",
@@ -34,17 +34,23 @@ Router.map ->
     path: "/:appName/tests"
     template: "testsList"
     before: ->
+      Session.set 'currentPage', 'tests'
       Session.set('statusFilter', 'all')
   @route "settings",
     path: "/:appName/settings"
     template: "settings"
+    before: ->
+      Session.set 'currentPage', 'settings'
   @route "create",
     path: "/:appName/create"
     template: "createTest"
+    before: ->
+      Session.set 'currentPage', 'tests'
   @route "edit",
     path: "/:appName/:_id/edit"
     template: "editTest"
     before: ->
+      Session.set 'currentPage', 'tests'
       Session.set('currentTest', @params._id)
     data: ->
       Tests.findOne(Session.get('currentTest'))
@@ -52,6 +58,7 @@ Router.map ->
     path: "/:appName/:_id/show"
     template: "showTest"
     before: ->
+      Session.set 'currentPage', 'tests'
       Session.set('currentTest', @params._id)
     data: ->
       Tests.findOne(Session.get('currentTest'))

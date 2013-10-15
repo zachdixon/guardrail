@@ -26,12 +26,15 @@ Template.testGroup.helpers
     Tests.find({category: @_id}).count() > 0
   testItems: ->
     Tests.find({category: @_id}, {sort: {created_at: -1}})
+  slug: ->
+    _.slugify(@name)
 
 Template.testItem.helpers
   currentStatus: (status) ->
     @status is status
   created_at: ->
     moment(@created_at).format("MMM DD, YYYY hh:mm:ss A")
+
       
 Template.createTest.helpers
   categories: ->
@@ -106,7 +109,7 @@ Template.editTest.events
       category: $(e.target).find('#testCategory').val()
       status: $(e.target).find('.item-status :checked').val()
       title: $(e.target).find('#testTitle').val()
-      description: $(e.target).find('#testDescription').val()
+      description: $(e.target).find('#hiddenDescription').val()
       created_at: Tests.findOne(currentTest).created_at
     Tests.update(currentTest, {$set: test})
     Router.go('tests', {appName: Session.get('currentApp')})
@@ -120,4 +123,11 @@ Template.editTest.events
 Template.editTest.rendered = ->
   $('#testCategory').select2
     placeholder: "Select category"
+  $('#testDescription').wysiwyg().on 'blur', (e) ->
+    html = $(@).html()
+    $('#hiddenDescription').val(html)
+
+Template.showTest.helpers
+  created_at: ->
+    moment(@created_at).format("MMM DD, YYYY hh:mm:ss A")
 

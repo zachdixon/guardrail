@@ -6,6 +6,19 @@ body {
 	margin-top: 20px;
 }
 
+#loading {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	#spinner {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+	}
+}
+
 .mixpanel-badge {
 	position: absolute;
 	left: -9999px;
@@ -99,4 +112,18 @@ h2[id] {
 }
 .select2-result-label, .select2-chosen {
 	text-transform: capitalize;
+}
+
+#testDescription.editor {
+	overflow: scroll;
+	min-height: 200px;
+	margin-top: 15px;
+	height: auto;
+}
+
+#test-items {
+	.panel-body {
+		max-height: 200px;
+		overflow: scroll;
+	}
 }
