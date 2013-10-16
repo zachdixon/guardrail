@@ -13,14 +13,18 @@
       <div class="collapse navbar-collapse bs-navbar-collapse">
         {{#if $and currentUser currentApp}}
           <ul class="nav navbar-nav">
-            <li>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{currentApp}} <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                {{#each apps}}
-                  <li><a href="{{pathFor 'tests' appName=name}}">{{name}}</a></li>
-                {{/each}}
-              </ul>
-            </li>
+            {{#if multipleApps}}
+              <li>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{currentApp}} <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  {{#each apps}}
+                    <li><a href="{{pathFor 'tests' appName=name}}">{{name}}</a></li>
+                  {{/each}}
+                </ul>
+              </li>
+            {{else}}
+              <li class="navbar-text">{{currentApp}}</li>
+            {{/if}}
             <li {{{currentPage 'tests'}}}><a href="{{pathFor 'tests' appName=currentApp}}"><i class="icon-tasks"></i> Tests</a></li>
             <!-- <li {{{currentPage 'bugs'}}}><a href="{{pathFor 'bugs' appName=currentApp}}"><i class="icon-bug"></i> Bugs</a></li> -->
             <li {{{currentPage 'settings'}}}><a href="{{pathFor 'settings' appName=currentApp}}"><i class="icon-cogs"></i> Settings</a></li>
