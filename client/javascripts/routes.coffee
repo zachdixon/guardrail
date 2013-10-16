@@ -62,3 +62,8 @@ Router.map ->
       Session.set('currentTest', @params._id)
     data: ->
       Tests.findOne(Session.get('currentTest'))
+  @route "bugs",
+    path: "/:appName/bugs"
+    template: "bugsList"
+    before: ->
+      Session.set 'currentPage', 'bugs'
