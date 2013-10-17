@@ -72,6 +72,9 @@ createTest = (e, doc, callback) ->
 Template.createTest.rendered = ->
   $('#testCategory').select2
     placeholder: "Select category"
+  $('#testDescription').wysiwyg().on 'blur', (e) ->
+    html = $(@).html()
+    $('#hiddenDescription').val(html)
 
 
 Template.testStatus.helpers

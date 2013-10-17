@@ -26,7 +26,7 @@
               <li class="navbar-text">{{currentApp}}</li>
             {{/if}}
             <li {{{currentPage 'tests'}}}><a href="{{pathFor 'tests' appName=currentApp}}"><i class="icon-tasks"></i> Tests</a></li>
-            <!-- <li {{{currentPage 'bugs'}}}><a href="{{pathFor 'bugs' appName=currentApp}}"><i class="icon-bug"></i> Bugs</a></li> -->
+            <li {{{currentPage 'bugs'}}}><a href="{{pathFor 'bugs' appName=currentApp}}"><i class="icon-bug"></i> Bugs</a></li>
             <li {{{currentPage 'settings'}}}><a href="{{pathFor 'settings' appName=currentApp}}"><i class="icon-cogs"></i> Settings</a></li>
           </ul>
         {{/if}}
