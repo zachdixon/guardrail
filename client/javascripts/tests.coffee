@@ -84,18 +84,20 @@ Template.testStatus.helpers
 
 Template.testStatus.events
   'click .item-status label:not(.active)': (e, doc) ->
-    clicked = $(e.currentTarget)
-    active = clicked.closest('.item-status').find('.active')
-    status = active.data 'status'
-    active.toggleClass("active btn-#{status}").addClass 'btn-default'
-    status = clicked.data 'status'
-    clicked.toggleClass "btn-default btn-#{status}"
     updateStatus = ""
     switch $(e.currentTarget).data 'status'
       when 'success' then updateStatus = 'passing'
       when 'danger' then updateStatus = 'failing'
       else updateStatus = 'untested'
-    if @_id then Tests.update(@_id, {$set: {status: updateStatus}})
+    if @_id
+      Tests.update(@_id, {$set: {status: updateStatus}})
+    else
+      clicked = $(e.currentTarget)
+      active = clicked.closest('.item-status').find('.active')
+      status = active.data 'status'
+      active.toggleClass("active btn-#{status}").addClass 'btn-default'
+      status = clicked.data 'status'
+      clicked.toggleClass "btn-default btn-#{status}"
 
 Template.editTest.helpers
   categories: ->
