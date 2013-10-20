@@ -52,6 +52,7 @@ Router.map ->
     before: ->
       Session.set 'currentPage', 'tests'
       Session.set('currentTest', @params._id)
+      unless Tests.findOne(@params._id) then Router.go('tests', {appName: @params.appName})
     data: ->
       Tests.findOne(Session.get('currentTest'))
   @route "show",

@@ -103,7 +103,7 @@ Template.editTest.helpers
   categories: ->
     Categories.find()
   currentCategory: (category) ->
-    Tests.findOne(Session.get('currentTest')).category is category
+    if Session.get('currentTest') then Tests.findOne(Session.get('currentTest')).category is category
 
 Template.editTest.events
   'submit form': (e, doc) ->
