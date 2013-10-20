@@ -62,7 +62,7 @@ createTest = (e, doc, callback) ->
     category: $(e.target).find('#testCategory').val()
     status: $(e.target).find('.item-status :checked').val()
     title: $(e.target).find('#testTitle').val()
-    description: $(e.target).find('#testDescription').val()
+    description: $(e.target).find('#hiddenDescription').val()
   Meteor.call 'getServerTime', (e,r) ->
     if r
       test.created_at = r
