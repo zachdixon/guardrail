@@ -52,7 +52,8 @@ Template.createTest.events
         Router.go('tests', {appName: Session.get('currentApp')})
       else if Session.get('create_action') is 'add_another'
         $(e.target).find('#testTitle').val("")
-        $(e.target).find('#testDescription').val("")
+        $(e.target).find('#testDescription').html("")
+        $(e.target).find('#hiddenDescription').val("")
       
 
 createTest = (e, doc, callback) ->
