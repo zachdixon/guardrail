@@ -4,16 +4,6 @@
   var disqus_shortname = 'guardrail';
 `
 
-Template.testItems.rendered = ->
-  # `
-  #   (function () {
-  #     var s = document.createElement('script'); s.async = true;
-  #     s.type = 'text/javascript';
-  #     s.src = '//' + window.disqus_shortname + '.disqus.com/count.js';
-  #     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-  #   }());
-  # `
-
 Template.disqus.rendered = ->
   unless window.DISQUS
     `
@@ -33,4 +23,3 @@ Template.disqus.rendered = ->
         @page.identifier = "test-#{Session.get('currentTest')}"
         @page.url = "http://guardrail.meteor.com/#!#{Session.get('currentTest')}"
         @page.title = "Test #{Session.get('currentTest')}"
-  
