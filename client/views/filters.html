@@ -21,23 +21,39 @@
 </template>
 
 <template name="bugFilters">
-	<div class="btn-group" data-toggle="buttons">
-		<label class="btn btn-default {{#if currentFilter 'all'}}active{{/if}}">
-			<input type="radio" name="filters" id="filter-all" checked="{{#if currentFilter 'all'}}checked{{/if}}" value="all"> All
-		</label>
-		<label class="btn btn-default {{#if currentFilter 'incomplete'}}active{{/if}}">
-			<input type="radio" name="filters" id="filter-incomplete" value="incomplete" checked="{{#if currentFilter 'incomplete'}}checked{{/if}}"> Incomplete
-		</label>
-		<label class="btn btn-default {{#if currentFilter 'wip'}}active{{/if}}">
-			<input type="radio" name="filters" id="filter-wip" value="wip" checked="{{#if currentFilter 'wip'}}checked{{/if}}"> Work in progress
-		</label>
-		<label class="btn btn-default {{#if currentFilter 'complete'}}active{{/if}}">
-			<input type="radio" name="filters" id="filter-complete" value="complete" checked="{{#if currentFilter 'complete'}}checked{{/if}}"> Complete
-		</label>
-	</div>
-	{{#if currentUser}}
-		<div class="pull-right">
-			<a href="{{pathFor 'createBug' appName=currentApp}}" class="btn btn-primary"><i class="icon-plus"></i> Report A Bug</a>
+	<div class="bug-filters form-inline">
+		<div class="form-group">
+			<label for="bug-type-filter">Type:
+				<select id="bug-type-filter" name="bug-type-filter" class="form-control">
+					<option value="all">All</option>
+					<option value="bug">Bugs</option>
+					<option value="new_feature">New Feature Requests</option>
+					<option value="suggestion">Suggestions</option>
+				</select>
+			</label>
 		</div>
-	{{/if}}
+		<div class="form-group">
+			<label>Status:</label>
+			<div class="btn-group" data-toggle="buttons">
+				<label class="btn btn-default {{#if currentFilter 'all'}}active{{/if}}">
+					<input type="radio" name="filters" id="filter-all" checked="{{#if currentFilter 'all'}}checked{{/if}}" value="all"> All
+				</label>
+				<label class="btn btn-default {{#if currentFilter 'incomplete'}}active{{/if}}">
+					<input type="radio" name="filters" id="filter-incomplete" value="incomplete" checked="{{#if currentFilter 'incomplete'}}checked{{/if}}"> Incomplete
+				</label>
+				<label class="btn btn-default {{#if currentFilter 'wip'}}active{{/if}}">
+					<input type="radio" name="filters" id="filter-wip" value="wip" checked="{{#if currentFilter 'wip'}}checked{{/if}}"> Work in progress
+				</label>
+				<label class="btn btn-default {{#if currentFilter 'complete'}}active{{/if}}">
+					<input type="radio" name="filters" id="filter-complete" value="complete" checked="{{#if currentFilter 'complete'}}checked{{/if}}"> Complete
+				</label>
+			</div>
+		</div>
+		{{#if currentUser}}
+			<div class="pull-right">
+				<a href="{{pathFor 'createBug' appName=currentApp}}" class="btn btn-primary"><i class="icon-plus"></i> Report An Issue</a>
+			</div>
+		{{/if}}
+	</div>
+
 </template>

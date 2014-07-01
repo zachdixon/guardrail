@@ -12,3 +12,10 @@ Meteor.publish 'currentTest', (app, id) ->
 
 Meteor.publish 'categories', (app) ->
 	Categories.find({app: app}, {sort: {name: 1}})
+
+Meteor.publish 'bugs', (app, status, type) ->
+	options = {}
+	options.app = app
+	unless status is "all" then options.status = status
+	unless type is "all" then options.type = type
+	return Bugs.find(options, {sort: {created_at: 1}})

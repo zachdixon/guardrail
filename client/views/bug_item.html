@@ -1,0 +1,28 @@
+<template name="bugItem">
+  <div id="{{_id}}" class="bug-item panel panel-default">
+    <div class="panel-heading clearfix">
+      <h4 class="pull-left"><span class="label label-default">{{index}}</span></h4>
+      <h4 class="bug-type pull-left">{{type}}</h4>
+      <p class="pull-right">
+        <strong>Created: </strong>
+        <small>{{created_at}}</small>
+      </p>
+    </div>
+    <div class="panel-body">
+      {{description}}
+    </div>
+    <div class="panel-footer">
+      {{> bugStatus this}}
+      <div class="pull-right">
+        {{#if currentUser}}
+          <a href="{{pathFor 'editBug' appName=currentApp _id=this._id}}">Edit</a>
+          |
+        {{/if}}
+        <a href="{{pathFor 'showBug' appName=currentApp _id=_id}}" class="" data-disqus-identifier="bug-{{_id}}">
+          Discuss
+          <span class="badge count-comments" data-disqus-url="{{urlFor 'showBug' appName=currentApp _id=this._id}}#disqus_thread"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</template>

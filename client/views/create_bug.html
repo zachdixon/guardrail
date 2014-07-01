@@ -6,30 +6,38 @@
           <div class="form-group">
             <label for="testCategory" class="col-md-1 control-label">Category</label>
             <div class="col-md-3">
-              <select name="category" id="testCategory" class="form-control" required="required">
-                {{#each categories}}
-                  <option value="{{_id}}">{{name}}</option>
-                {{/each}}
+              <select name="bug-type" id="bug-type" class="form-control" required="required">
+                <option value="bug">Something's broken</option>
+                <option value="new_feature">I'd like to see a new feature</option>
+                <option value="suggestion">I have a comment or suggestion</option>
               </select>
             </div>
           </div>
           <div class="form-group">
-            <label for="testStatus" class="col-md-1 control-label">Status</label>
+            <label for="os" class="col-md-1 control-label">Operating System</label>
             <div class="col-md-3">
-              {{> testStatus}}
+              <div class="checkbox"><label><input type="checkbox" name="os" value="mac">Mac</label></div>
+              <div class="checkbox"><label><input type="checkbox" name="os" value="windows">Windows</label></div>
+              <div class="checkbox"><label><input type="checkbox" name="os" value="ios">iOS</label></div>
+              <div class="checkbox"><label><input type="checkbox" name="os" value="windows_phone">Windows Phone</label></div>
+              <div class="checkbox"><label><input type="checkbox" name="os" value="mac">Android</label></div>
+            </div>
+            <label for="browser" class="col-md-1 control-label">Browser</label>
+            <div class="col-md-3">
+              <div class="checkbox"><label><input type="checkbox" name="browser" value="chrome">Chrome</label></div>
+              <div class="checkbox"><label><input type="checkbox" name="browser" value="firefox">Firefox</label></div>
+              <div class="checkbox"><label><input type="checkbox" name="browser" value="safari">Safari</label></div>
+              <div class="checkbox"><label><input type="checkbox" name="browser" value="ie">Internet Explorer</label></div>
+              <div class="checkbox"><label><input type="checkbox" name="browser" value="other">Other</label></div>
             </div>
           </div>
           <div class="form-group">
-            <label for="testTitle" class="col-md-1 control-label">Title</label>
-            <div class="col-md-8"><input type="text" id="testTitle" name="title" class="form-control" required="required"></div>
-          </div>
-          <div class="form-group">
-            <label for="testDescription" class="col-md-1 control-label">Description</label>
+            <label for="bugDescription" class="col-md-1 control-label">Description</label>
             <div class="col-md-8">
-              <div class="btn-toolbar" data-role="editor-toolbar" data-target="#testDescription">
+              <div class="btn-toolbar" data-role="editor-toolbar" data-target="#bugDescription">
                 {{> editorToolbar}}
               </div>
-              <div id="testDescription" class="form-control editor" contenteditable="true"></div>
+              <div id="bugDescription" class="form-control editor" contenteditable="true"></div>
               <input type="hidden" id="hiddenDescription" required="required">
             </div>
           </div>
@@ -37,7 +45,7 @@
             <div class="col-md-8 col-md-offset-1">
               <input type="submit" class="btn btn-primary" name="submit" value="Submit &amp; exit"/>
               <input type="submit" class="btn btn-primary add-another" name="add_another" value="Submit &amp; add another"/>
-              <a href="javascript:Location.back()" class="btn btn-default">Cancel</a>
+              <a href="{{pathFor 'bugs' appName=currentApp}}" class="btn btn-default">Cancel</a>
             </div>
           </div>
         </form>

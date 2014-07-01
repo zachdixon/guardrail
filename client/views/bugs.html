@@ -7,9 +7,11 @@
             <div class="row">
               {{> bugFilters}}
             </div>
-            <div id="test-items" class="row">
+            <div id="bug-items" class="row">
               {{#if hasBugs}}
-                {{> bugItems}}
+                {{#each with_index bugItems}}
+                  {{> bugItem}}
+                {{/each}}
               {{else}}
                 <section class="main-alert">
                   <div class="alert alert-warning">

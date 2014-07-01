@@ -74,3 +74,20 @@ Router.map ->
     template: "createBug"
     onBeforeAction: ->
       Session.set 'currentPage', 'bugs'
+  @route "editBug",
+    path: "/:appName/bugs/:_id/edit"
+    template: "editBug"
+    onBeforeAction: ->
+      Session.set 'currentPage', 'bugs'
+      Session.set 'currentBug', @params._id
+      unless Bugs.findOne(@params._id) then Router.go('bugs', {appName: @params.appName})
+    data: ->
+      Bugs.findOne(Session.get('currentTest'))
+  @route "showBug",
+    path: "/:appName/bugs/:_id/show"
+    template: "showBug"
+    onBeforeAction: ->
+      Session.set 'currentPage', 'bugs'
+      Session.set 'currentBug', @params._id
+    data: ->
+      Bugs.findOne(Session.get('currentTest'))

@@ -1,0 +1,31 @@
+<template name="bugStatus">
+  <div class="item-status btn-group" data-toggle="buttons">
+    {{#if currentStatus 'incomplete'}}
+      <label class="btn btn-danger btn-xs active" data-status="danger" for="status-passing-{{_id}}">
+        <input type="radio" name="status-{{_id}}" id="status-incomplete" checked="checked" value="incomplete"> Incomplete
+      </label>
+    {{else}}
+      <label class="btn btn-default btn-xs" data-status="danger" for="status-incomplete-{{_id}}">
+        <input type="radio" name="status-{{_id}}" id="status-incomplete" value="incomplete"> Incomplete
+      </label>
+    {{/if}}
+    {{#if currentStatus 'wip'}}
+      <label class="btn btn-warning btn-xs active" data-status="warning" for="status-wip-{{_id}}">
+        <input type="radio" name="status-{{_id}}" id="status-wip" checked="checked" value="wip"> Work in progress
+      </label>
+    {{else}}
+      <label class="btn btn-default btn-xs" data-status="warning" for="status-wip-{{_id}}">
+        <input type="radio" name="status-{{_id}}" id="status-wip" value="wip"> Work in progress
+      </label>
+    {{/if}}
+    {{#if currentStatus 'complete'}}
+      <label class="btn btn-success btn-xs active" data-status="success" for="status-complete-{{_id}}">
+        <input type="radio" name="status-{{_id}}" id="status-complete" checked="checked" value="complete"> Complete
+      </label>
+    {{else}}
+      <label class="btn btn-default btn-xs" data-status="success" for="status-complete-{{_id}}">
+        <input type="radio" name="status-{{_id}}" id="status-complete" value="complete"> Complete
+      </label>
+    {{/if}}
+  </div>
+</template>

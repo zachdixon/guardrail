@@ -1,4 +1,4 @@
-@App = 
+@App =
 	subs: {}
 
 App.subs.apps = Meteor.subscribe('apps')
@@ -10,3 +10,4 @@ Deps.autorun ->
 		onReady: ->
 			Session.set('testsReady', true)
 	App.subs.currentTest = Meteor.subscribe 'currentTest', Session.get('currentAppId'), Session.get('currentTest')
+	App.subs.bugs = Meteor.subscribe 'bugs', Session.get('currentAppId'), Session.get('bugFilter'), Session.get('bugTypeFilter')

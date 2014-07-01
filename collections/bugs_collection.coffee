@@ -3,19 +3,20 @@
 schema = new SimpleSchema
   app:
     type: String
-  bug_type:
+  type:
     type: String
-  urgency:
-    type: Number
   description:
     type: String
   browser:
-    type: String
+    type: [String]
+    optional: true
   browser_version:
     type: Number
+    optional: true
+  os:
+    type: [String]
+    optional: true
   status:
-    type: String
-  title:
     type: String
   vote_count:
     type: Number

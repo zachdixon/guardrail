@@ -57,7 +57,13 @@ h2[id] {
 	width: 100%;
 }
 
-.test-item {
+.bug-filters {
+	label {
+		margin-bottom: 0;
+	}
+}
+
+.test-item, .bug-item {
 	position: relative;
 	.panel-heading {
 		h4 {
@@ -67,12 +73,12 @@ h2[id] {
 			margin: 0 10px 0 0;
 		}
 	}
-	.test-title {
+	.test-title, .bug-type {
 		padding-left: 10px;
 	}
 }
 
-.btn-delete-test {
+.btn-delete-test, .btn-delete-bug {
 	background: none;
 	border: none;
 	display: none;
@@ -88,7 +94,7 @@ h2[id] {
 	}
 }
 
-.test-item:hover .btn-delete-test {
+.test-item:hover .btn-delete-test, .bug-item:hover .btn-delete-bug {
 	display: block;
 }
 
@@ -122,16 +128,20 @@ h2[id] {
 	text-transform: capitalize;
 }
 
-#testDescription.editor {
+#testDescription.editor, #bugDescription.editor {
 	overflow: scroll;
 	min-height: 200px;
 	margin-top: 15px;
 	height: auto;
 }
 
-#test-items {
+#test-items, #bug-items {
 	.panel-body {
 		max-height: 200px;
 		overflow: scroll;
 	}
+}
+
+#bug-items {
+	margin-top: 20px !important;
 }
