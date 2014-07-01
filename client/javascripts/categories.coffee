@@ -16,9 +16,12 @@ Template.category.events
 	'click .delete': (e, doc) ->
 		e.preventDefault()
 		if confirm("Are you sure? This will delete the category and any tests that belong to it.")
-			Categories.remove(@_id)
-			Tests.find({category: @_id}).forEach (test) ->
-				Tests.remove(test._id)
+			Meteor.call 'removeCategory', @_id, (error) =>
+				if error
+					throw error
+				else
+					Tests.find({category: @_id}).forEach (test) ->
+						Meteor.call 'removeTest', test._id
 
 Template.categories.rendered = ->
 	$('.list-group').editable
