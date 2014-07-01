@@ -1,7 +1,7 @@
 Handlebars.registerHelper 'with_index', (items) ->
 	index = 1
 	results = []
-	items.forEach (item) -> 
+	items.forEach (item) ->
 		item['index'] = index
 		results.push(item)
 		index++
@@ -12,5 +12,4 @@ Handlebars.registerHelper 'currentApp', ->
 
 Handlebars.registerHelper 'currentPage', (page) ->
 	if Session.equals 'currentPage', page
-		return "class='active'"
-
+		return 'active'

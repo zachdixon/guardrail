@@ -5,7 +5,6 @@ typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var
 b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
 mixpanel.init("50bf43445362254d3d65316791cb5ef5");`
     mixpanel.identify(Meteor.userId())
-    debugger
     mixpanel.people.set
       "$email": Meteor.user().emails[0].address
       "$username": Meteor.user().username

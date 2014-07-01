@@ -43,10 +43,18 @@ body {
 	}
 }
 
+.row {
+	margin: 0 !important;
+}
+
 h2[id] {
   padding-top: 80px;
   margin-top: -45px;
 	text-transform: capitalize;
+}
+
+.form-group input[type="text"] {
+	width: 100%;
 }
 
 .test-item {

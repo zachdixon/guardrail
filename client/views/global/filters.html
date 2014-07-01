@@ -1,0 +1,43 @@
+<template name="filters">
+	<div class="btn-group" data-toggle="buttons">
+	  <label class="btn btn-default {{#if currentFilter 'all'}}active{{/if}}">
+	    <input type="radio" name="filters" id="filter-all" checked="{{#if currentFilter 'all'}}checked{{/if}}" value="all"> All
+	  </label>
+	  <label class="btn btn-default {{#if currentFilter 'passing'}}active{{/if}}">
+	    <input type="radio" name="filters" id="filter-passing" value="passing" checked="{{#if currentFilter 'passing'}}checked{{/if}}"> Passing
+	  </label>
+	  <label class="btn btn-default {{#if currentFilter 'failing'}}active{{/if}}">
+	    <input type="radio" name="filters" id="filter-failing" value="failing" checked="{{#if currentFilter 'failing'}}checked{{/if}}"> Failing
+	  </label>
+	  <label class="btn btn-default {{#if currentFilter 'untested'}}active{{/if}}">
+	    <input type="radio" name="filters" id="filter-untested" value="untested" checked="{{#if currentFilter 'untested'}}checked{{/if}}"> Untested
+	  </label>
+	</div>
+	{{#if $and currentUser hasCategories}}
+    <div class="pull-right">
+      <a href="{{pathFor 'create' appName=currentApp}}" class="btn btn-primary"><i class="icon-plus"></i> Create Test</a>
+    </div>
+  {{/if}}
+</template>
+
+<template name="bugFilters">
+	<div class="btn-group" data-toggle="buttons">
+		<label class="btn btn-default {{#if currentFilter 'all'}}active{{/if}}">
+			<input type="radio" name="filters" id="filter-all" checked="{{#if currentFilter 'all'}}checked{{/if}}" value="all"> All
+		</label>
+		<label class="btn btn-default {{#if currentFilter 'incomplete'}}active{{/if}}">
+			<input type="radio" name="filters" id="filter-incomplete" value="incomplete" checked="{{#if currentFilter 'incomplete'}}checked{{/if}}"> Incomplete
+		</label>
+		<label class="btn btn-default {{#if currentFilter 'wip'}}active{{/if}}">
+			<input type="radio" name="filters" id="filter-wip" value="wip" checked="{{#if currentFilter 'wip'}}checked{{/if}}"> Work in progress
+		</label>
+		<label class="btn btn-default {{#if currentFilter 'complete'}}active{{/if}}">
+			<input type="radio" name="filters" id="filter-complete" value="complete" checked="{{#if currentFilter 'complete'}}checked{{/if}}"> Complete
+		</label>
+	</div>
+	{{#if currentUser}}
+		<div class="pull-right">
+			<a href="{{pathFor 'createBug' appName=currentApp}}" class="btn btn-primary"><i class="icon-plus"></i> Report A Bug</a>
+		</div>
+	{{/if}}
+</template>

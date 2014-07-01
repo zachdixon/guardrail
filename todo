@@ -1,0 +1,24 @@
+TODO:
+
+- Change edit and create views to look like the other tests using x-editable to edit
+
+- Add security/remove insecure package
+- Use Meteor.methods
+
+- Add Bug tracking
+	- submit bugs, mark as completed
+
+
+OPTIONAL:
+- Add single login with Disqus
+- email registered users when a test is commented on
+	- Meteor.email users that optOut is false
+	- allow opt out
+
+
+
+TESTING:
+- Laika
+- write tests
+- run 'mongod --smallfiles --noprealloc --nojournal'
+- run 'laika'

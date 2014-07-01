@@ -1,0 +1,35 @@
+<template name="bugsList">
+  <div id="main_wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          {{#if currentUser}}
+            <div class="row">
+              {{> bugFilters}}
+            </div>
+            <div id="test-items" class="row">
+              {{#if hasBugs}}
+                {{> bugItems}}
+              {{else}}
+                <section class="main-alert">
+                  <div class="alert alert-warning">
+                    <strong>Hey! Listen!</strong>
+                    No bugs currently reported,
+                    <a href="{{pathFor 'createBug' appName=currentApp}}"> report one now.</a>
+                  </div>
+                </section>
+              {{/if}}
+            </div>
+          {{else}}
+          <section>
+            <div class="alert alert-warning">
+              <strong>Hey! Listen!</strong>
+              Please sign in.
+            </div>
+          </section>
+          {{/if}}
+        </div>
+      </div> <!-- end row -->
+    </div> <!-- end container -->
+  </div> <!-- end #main_wrapper -->
+</template>

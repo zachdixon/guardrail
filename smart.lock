@@ -14,23 +14,24 @@
       "bootstrap-3": {},
       "accounts-ui-bootstrap-3": {},
       "scss": {},
-      "font-awesome": {}
+      "font-awesome": {},
+      "accounts-ui-bootstrap-3-blaze": {}
     },
     "packages": {
       "collection2": {
         "git": "https://github.com/aldeed/meteor-collection2.git",
-        "tag": "v0.2.11",
-        "commit": "34ea61718c8826dfa9236222cec6c097bd41ae6b"
+        "tag": "v0.4.2",
+        "commit": "4ff4b707bec8be434919730bf101325adb215444"
       },
       "handlebar-helpers": {
         "git": "https://github.com/raix/Meteor-handlebar-helpers.git",
-        "tag": "v0.0.9",
-        "commit": "71e94c99462b8801a34c5363510758b6ff5f5ac7"
+        "tag": "v0.1.1",
+        "commit": "0b407ab65e7c1ebd53d71aef0de2e2c1d21a597c"
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.5.4",
-        "commit": "3e0e22ff85630b7503d0daa1538c6d90abb84020"
+        "tag": "v0.7.1",
+        "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
       },
       "modernizr-meteor": {
         "git": "https://github.com/ckir/modernizr-meteor.git",
@@ -44,8 +45,8 @@
       },
       "spin": {
         "git": "https://github.com/SachaG/meteor-spin.git",
-        "tag": "v0.2.0",
-        "commit": "fd3a2871a69442848b4b4e74f5e1ae28fa4a95a4"
+        "tag": "v0.2.2",
+        "commit": "3f655f0016228e4195acc784c45d3e3a247dc39f"
       },
       "underscore-string-latest": {
         "git": "https://github.com/TimHeckel/meteor-underscore-string.git",
@@ -54,38 +55,48 @@
       },
       "select2": {
         "git": "https://github.com/nate-strauser/meteor-select2.git",
-        "tag": "v3.4.3",
-        "commit": "fbe1f33800c90ecdfdcec529970382f8781e3988"
+        "tag": "v3.4.5",
+        "commit": "4a8d05582b949a14f0ee217c185166abbf112822"
       },
       "smart-collections": {
         "git": "https://github.com/arunoda/meteor-smart-collections.git",
-        "tag": "v0.3.22",
-        "commit": "34710960d08dddc206abefbb59dc17c93735a721"
+        "tag": "v0.4.0",
+        "commit": "da25a5e88c3b5e3c1cb3bd44fd7fdc3234448526"
       },
       "bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
-        "tag": "v0.3.5",
-        "commit": "47996f67f3987c9f82117394effcbe1586a4fe29"
+        "tag": "v3.2.0-1",
+        "commit": "17a63902fc6cf1096c5289d963c66cf28b474727"
       },
       "accounts-ui-bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
-        "tag": "v0.2.3",
-        "commit": "c6aac7a331e457abd457a6f3ed030ac1411b220c"
+        "tag": "v0.3.0-1",
+        "commit": "93ffa5d0e325dc7026de89f6d90c178fa04bdd3a"
       },
       "scss": {
         "git": "https://github.com/fourseven/meteor-scss.git",
-        "tag": "v0.6.4.1",
-        "commit": "bf203edb83565943cc0c00a31d536de7094f312b"
+        "tag": "v0.9.3",
+        "commit": "185f3b2787fb85e653f7b7bf603d1493ed14943d"
       },
       "font-awesome": {
         "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
-        "tag": "v3.2.1",
-        "commit": "38bdfff72dfb8857b272f9a9b056045d6a015489"
+        "tag": "v4.1.0",
+        "commit": "ce6b1e92715d1938babc5d69c655c17e387f5926"
+      },
+      "accounts-ui-bootstrap-3-blaze": {
+        "git": "https://github.com/rajit/meteor-accounts-ui-bootstrap-3.git",
+        "tag": "v0.3.7",
+        "commit": "a40b15f4b6213040accec10df97a7793e3a25225"
       },
       "simple-schema": {
         "git": "https://github.com/aldeed/meteor-simple-schema.git",
-        "tag": "v0.2.10",
-        "commit": "64d41a9ec7f220ecc63d22a5f1056c5926651b82"
+        "tag": "v0.5.1",
+        "commit": "a29956b34d03a4591dbd0eaed9d37009ef48b8db"
+      },
+      "blaze-layout": {
+        "git": "https://github.com/EventedMind/blaze-layout.git",
+        "tag": "v0.2.4",
+        "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
       }
     }
   }

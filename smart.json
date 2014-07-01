@@ -12,6 +12,7 @@
     "bootstrap-3": {},
     "accounts-ui-bootstrap-3": {},
     "scss": {},
-    "font-awesome": {}
+    "font-awesome": {},
+    "accounts-ui-bootstrap-3-blaze": {}
   }
 }

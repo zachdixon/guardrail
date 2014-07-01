@@ -35,7 +35,7 @@ Template.testItem.helpers
   created_at: ->
     moment(@created_at).format("MMM DD, YYYY hh:mm:ss A")
 
-      
+
 Template.createTest.helpers
   categories: ->
     Categories.find()
@@ -54,7 +54,7 @@ Template.createTest.events
         $(e.target).find('#testTitle').val("")
         $(e.target).find('#testDescription').html("")
         $(e.target).find('#hiddenDescription').val("")
-      
+
 
 createTest = (e, doc, callback) ->
   e.preventDefault()
@@ -104,7 +104,7 @@ Template.editTest.helpers
   categories: ->
     Categories.find()
   currentCategory: (category) ->
-    if Session.get('currentTest') then Tests.findOne(Session.get('currentTest')).category is category
+    if Session.get('currentTest') then Tests.findOne(Session.get('currentTest'))?.category is category
 
 Template.editTest.events
   'submit form': (e, doc) ->
@@ -123,8 +123,11 @@ Template.editTest.events
     e.preventDefault()
     if confirm("Are you sure? This will delete the test and its comments forever.")
       currentTestId = Session.get('currentTest')
-      Tests.remove currentTestId, (error) ->
-        unless error then Router.go('tests', {appName: Session.get('currentApp')})
+      Meteor.call 'removeTest', currentTestId, (error) ->
+        if error
+          throw error
+        else
+          Router.go('tests', {appName: Session.get('currentApp')})
 
 Template.editTest.rendered = ->
   $('#testCategory').select2
@@ -136,4 +139,3 @@ Template.editTest.rendered = ->
 Template.showTest.helpers
   created_at: ->
     moment(@created_at).format("MMM DD, YYYY hh:mm:ss A")
-
