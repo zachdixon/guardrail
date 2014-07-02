@@ -82,7 +82,7 @@ Router.map ->
       Session.set 'currentBug', @params._id
       unless Bugs.findOne(@params._id) then Router.go('bugs', {appName: @params.appName})
     data: ->
-      Bugs.findOne(Session.get('currentTest'))
+      Bugs.findOne(Session.get('currentBug'))
   @route "showBug",
     path: "/:appName/bugs/:_id/show"
     template: "showBug"
@@ -90,4 +90,4 @@ Router.map ->
       Session.set 'currentPage', 'bugs'
       Session.set 'currentBug', @params._id
     data: ->
-      Bugs.findOne(Session.get('currentTest'))
+      Bugs.findOne(Session.get('currentBug'))

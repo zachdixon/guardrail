@@ -78,3 +78,50 @@ createBug = (e, doc, callback) ->
       bug.created_at = r
       Bugs.insert(bug)
   callback(e, doc)
+
+
+Template.editBug.helpers
+  selectedType: (type) ->
+    @type is type
+  checkedOS: (os) ->
+    _.include(@os, os)
+  checkedBrowser: (browser) ->
+    _.include(@browser, browser)
+
+Template.editBug.events
+  'submit form': (e, doc) ->
+    e.preventDefault()
+    currentTest = Session.get('currentTest')
+    test =
+      app: Session.get('currentAppId')
+      category: $(e.target).find('#testCategory').val()
+      status: $(e.target).find('.item-status :checked').val()
+      title: $(e.target).find('#testTitle').val()
+      description: $(e.target).find('#hiddenDescription').val()
+      created_at: Tests.findOne(currentTest).created_at
+    Tests.update(currentTest, {$set: test})
+    Router.go('tests', {appName: Session.get('currentApp')})
+  'click .delete': (e, doc) ->
+    e.preventDefault()
+    if confirm("Are you sure? This will delete the test and its comments forever.")
+      currentTestId = Session.get('currentTest')
+      Meteor.call 'removeTest', currentTestId, (error) ->
+        if error
+          throw error
+        else
+          Router.go('tests', {appName: Session.get('currentApp')})
+
+Template.editBug.rendered = ->
+  # $('#bug-type').select2
+  #   placeholder: "What's wrong?"
+  $('#bugDescription').wysiwyg().on 'blur', (e) ->
+    html = $(@).html()
+    $('#hiddenDescription').val(html)
+
+Template.showBug.helpers
+  type: ->
+    _.titleize(_.humanize(@type))
+  currentStatus: (status) ->
+    @status is status
+  created_at: ->
+    moment(@created_at).format("MMM DD, YYYY hh:mm:ss A")

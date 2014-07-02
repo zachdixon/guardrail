@@ -24,11 +24,11 @@
 	<div class="bug-filters form-inline">
 		<div class="form-group">
 			<label for="bug-type-filter">Type:
-				<select id="bug-type-filter" name="bug-type-filter" class="form-control">
-					<option value="all">All</option>
-					<option value="bug">Bugs</option>
-					<option value="new_feature">New Feature Requests</option>
-					<option value="suggestion">Suggestions</option>
+				<select id="bug-type-filter" name="bug-type-filter" class="form-control" value="{{$.Session.get 'bugTypeFilter'}}">
+					<option value="all" selected="{{$.Session.equals 'bugTypeFilter' 'all'}}">All</option>
+					<option value="bug" selected="{{$.Session.equals 'bugTypeFilter' 'bug'}}">Bugs</option>
+					<option value="new_feature" selected="{{$.Session.equals 'bugTypeFilter' 'new_feature'}}">New Feature Requests</option>
+					<option value="suggestion" selected="{{$.Session.equals 'bugTypeFilter' 'suggestion'}}">Suggestions</option>
 				</select>
 			</label>
 		</div>
