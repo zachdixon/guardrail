@@ -35,6 +35,8 @@ Template.bugItem.helpers
     moment(@created_at).format("MMM DD, YYYY hh:mm:ss A")
 
 Template.createBug.rendered = ->
+  $('#bug-type').select2
+    placeholder: "What's wrong?"
   $('#bugDescription').wysiwyg().on 'blur', (e) ->
     html = $(@).html()
     $('#hiddenDescription').val(html)
@@ -112,11 +114,12 @@ Template.editBug.events
           Router.go('tests', {appName: Session.get('currentApp')})
 
 Template.editBug.rendered = ->
-  # $('#bug-type').select2
-  #   placeholder: "What's wrong?"
+  $('#bug-type').select2
+    placeholder: "What's wrong?"
   $('#bugDescription').wysiwyg().on 'blur', (e) ->
     html = $(@).html()
     $('#hiddenDescription').val(html)
+
 
 Template.showBug.helpers
   type: ->
