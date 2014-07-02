@@ -93,25 +93,30 @@ Template.editBug.helpers
 Template.editBug.events
   'submit form': (e, doc) ->
     e.preventDefault()
-    currentTest = Session.get('currentTest')
-    test =
+    currentBug = Session.get('currentBug')
+    os = []
+    browser = []
+    $(e.target).find('[name="os"]:checked').each (index, el) ->
+      os.push(el.value)
+    $(e.target).find('[name="browser"]:checked').each (index, el) ->
+      browser.push(el.value)
+    bug =
       app: Session.get('currentAppId')
-      category: $(e.target).find('#testCategory').val()
-      status: $(e.target).find('.item-status :checked').val()
-      title: $(e.target).find('#testTitle').val()
+      type: $(e.target).find('#bug-type').val()
+      os: os
+      browser: browser
       description: $(e.target).find('#hiddenDescription').val()
-      created_at: Tests.findOne(currentTest).created_at
-    Tests.update(currentTest, {$set: test})
-    Router.go('tests', {appName: Session.get('currentApp')})
+    Bugs.update(currentBug, {$set: bug})
+    Router.go('bugs', {appName: Session.get('currentApp')})
   'click .delete': (e, doc) ->
     e.preventDefault()
-    if confirm("Are you sure? This will delete the test and its comments forever.")
-      currentTestId = Session.get('currentTest')
-      Meteor.call 'removeTest', currentTestId, (error) ->
+    if confirm("Are you sure? This will delete the bug and its comments forever.")
+      currentBugId = Session.get('currentBug')
+      Meteor.call 'removeBug', currentBugId, (error) ->
         if error
           throw error
         else
-          Router.go('tests', {appName: Session.get('currentApp')})
+          Router.go('bugs', {appName: Session.get('currentApp')})
 
 Template.editBug.rendered = ->
   $('#bug-type').select2
